@@ -4,6 +4,8 @@ A fully serverless, scalable expense tracking application built on AWS.
 Users can add or delete expenses, view their spending, and receive alerts when they exceed their budget.  
 The system runs entirely on managed AWS services, requiring no servers or manual scaling.
 
+
+![Example Image](ExpenseProject.png)
 ---
 
 ## 🚀 Features
