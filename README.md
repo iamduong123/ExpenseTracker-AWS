@@ -56,7 +56,7 @@ This improved my AWS security fundamentals.
 
 ## 🧩 DynamoDB Table Structure
 
-**Table Name:** `Expenses`
+**Table Name:** `MyExpenses`
 
 | Attribute | Type | Description |
 |----------|------|-------------|
@@ -128,6 +128,22 @@ This project can be deployed using:
 - Use Step Functions for multi-step flows  
 
 ---
+
+
+## Step-by-step deployment guide:
+1. Create a DynamoDB and name it, then name the partition key as expense_id.
+2. Create 3 lambda functions(make sure the code has the table name the same as the name of the table you have created), then assign roles to them so they can have full control on DynamoDB (except get func, which only gets read only).
+3. Create an API REST, add a resource for Get, Delete, and Post methods, then integrate it with Lambda.
+4. Deploy that API, set the new stage, then name it prod, then copy the invoke URL
+5. Create an S3 bucket, set public access, set permission getObject for *, upload the index.html file(replace the value of API_BASED to invoke URL you just copied earlier)
+6. At this moment, the services should work as intended.
+7. Create the SNS topic, subscribe your email to it, then copy the ARN
+8. In IAM roles, on addExpenses role, add an additional policy so SNS can do the action: Publish
+9. In addExpense function, replace the ARN placeholder
+10. You are ready to gooooo!!!!
+---
+
+
 # ✅ Summary
 
 This project strengthened my skills in:
